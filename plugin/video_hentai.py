@@ -61,6 +61,7 @@ def hentaidl(client, callback_query):
     result = requests.get(url) 
     result = result.json()  
     url = result["data"][0]["url"]
+    print("url = {}".format(url))
     callback_query.edit_message_text("""Wait till we fetch hentai for you...\nStatus: **DOWNLOADING**""", parse_mode="markdown")
     is_hentai = hentai.find_one({"name": link})
     if not is_hentai:
